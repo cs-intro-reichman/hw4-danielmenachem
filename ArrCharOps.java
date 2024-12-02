@@ -163,6 +163,9 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        if (str1 == "" || str2 == "") {
+            return -2; 
+        }
         char[] arr1 = stringToArray(str1); 
         char[] arr2 = stringToArray(str2); 
         int i = 0;
