@@ -14,13 +14,45 @@ public class KeywordsDetector {
             "Effective presentations must be clear, concise, and humble"
         };
         // Some keywords that typically signal bullshit contents in business presentations 
-        String[] keywords = {"synergy", "disrupt", "leverage", "Paradigm", "transform"};
+        String[] keywords = {"synergy", "disrupt", "leverage", "paradigm", "transform"};
         detectAndPrint(sentences, keywords);
     }
 
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+        for (int i = 0; i < sentences.length; i++) {
+            sentences[i] = lowerCase(sentences[i]);
+            for (int j = 0; j < keywords. length; j++) {
+                if (contains(sentences[i], keywords[j])) {
+                    System.out.println(sentences[i]);
+                    break; 
+                }
+            }
+        }
+    }
+
+    /** If str1 contains str2, returns true; otherwise returns false. */
+    public static boolean contains(String str1, String str2) {
+        if (str1.indexOf(str2) == -1) {
+            return false; 
+        } 
+        return true; 
+    }
+
+    public static String lowerCase(String str) {
+        char[] lowerCaseArr = new char[str.length()]; 
+        for (int i = 0; i < str.length(); i++) {
+            char x = str.charAt(i); 
+            if ((int) x >= 65 && (int) x <= 90) {
+                x = (char) ((int) x + 32); 
+            }
+            lowerCaseArr[i] = x; 
+        }
+        String output = ""; 
+        for (int i = 0; i < lowerCaseArr.length; i++) {
+            output += lowerCaseArr[i]; 
+        }
+        return output;
     }
 }
